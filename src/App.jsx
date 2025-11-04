@@ -1,28 +1,35 @@
-import { useState } from 'react'
+import Hero from './components/Hero';
+import About from './components/About';
+import Projects from './components/Projects';
+import Contact from './components/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-white text-gray-900">
+      {/* Simple sticky header */}
+      <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/70 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="#home" className="text-sm font-bold tracking-tight">dev.portfolio</a>
+          <nav className="hidden items-center gap-6 text-sm font-medium text-gray-700 md:flex">
+            <a href="#about" className="hover:text-gray-900">About</a>
+            <a href="#projects" className="hover:text-gray-900">Projects</a>
+            <a href="#contact" className="hover:text-gray-900">Contact</a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Contact />
+      </main>
+
+      <footer className="border-t border-gray-200 py-8 text-center text-sm text-gray-600">
+        © {new Date().getFullYear()} Your Name. All rights reserved.
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
